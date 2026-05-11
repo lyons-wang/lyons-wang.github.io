@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title> Lyons' Personal Website </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
+</head>
+
+<!-- Navigation tabs a -->
+<!-- we can also get the data attribute in JS through dataset object, by the part of attribute name after data- -->
+
+<body data-page="home">
+    <div class="page">
+        <nav class="side-tabs">
+            <a href="index.html" data-page="home">Home</a>
+            <a href="projects.html" data-page="projects">Projects</a>
+            <a href="research.html" data-page="research">Research</a>
+            <a href="sounds.html" data-page="sounds">Sounds</a>
+        </nav>
+        <div class="board">
+            <div class="page-sheet homepage">
+                <div class="pfp">
+                    <img src="assets/IMG_7871.jpeg" alt="Lyons Wang Profile Picture">
+                </div>
+                <div class="home-text">
+                    <div style="text-align: center;">
+                        <h1>
+                            Hi! I'm Lyons Wang.
+                        </h1>
+                        I'm currently studying <strong>Computational Neuroscience (BS)</strong> at <strong>Brown
+                            University</strong>.
+                        <br> Contact me at:
+                        <a href="mailto:lyons_wang@brown.edu">lyons_wang@brown.edu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

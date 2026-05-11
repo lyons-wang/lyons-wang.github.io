@@ -1,0 +1,153 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Shippori Mincho", serif;
+  background-color: #1B4D3E;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.board {
+  width: 900px;
+  height: 650px;
+  overflow: hidden;
+  margin: 50px auto;
+
+  /* Created a 384 x 384 pixel art image that can be tiled.*/
+  border: 24px solid transparent;
+  border-image-source: url("assets/bulletin-board1.png");
+  border-image-slice: 128 fill;
+  border-image-width: 32px;
+  border-image-repeat: round;
+
+  box-sizing: border-box;
+  display: flex;
+}
+/*content inside the board*/
+.page-sheet {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  padding: 0px;
+  box-sizing: border-box;
+
+  animation: slideInFromRight 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-sheet.slide-out-left {
+  animation: slideOutLeft 0.5s ease forwards;
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+}
+
+/* side-tabs + board */
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap:0;
+}
+
+.side-tabs {
+  display: flex;
+  flex-direction: column;
+  gap:12px;
+  margin-right:-8px;
+  z-index: 2;
+  margin-top: -300px;
+}
+
+.side-tabs a {
+  background-color: #4A6B57;
+  color: #F3E7C9;
+  text-decoration: none;
+
+  padding: 12px 18px;
+  border-radius: 12px 0 0 12px;
+
+  font-size: 20px;
+  font-weight: bold;
+
+  border: 3px solid #7A6136;
+  border-right: none;
+}
+
+.side-tabs a:hover {
+  background-color: #5B7D69;
+}
+/*when a tab is active, pull the tab out by transforming it to the right*/
+.side-tabs a.active-tab {
+  background-color: #6F8F72;
+  color: #FFF6DD;
+  transform: translateX(6px);
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+}
+
+/* SPECIFIC PAGES */
+
+/* Home Page/About Me */
+.pfp {
+  width:200px;
+  height:200px;
+  padding: 0; /* no padding for this */
+
+  /* The frame for the profile picture*/
+  border: 15px solid transparent;
+  border-image-source: url("assets/bulletin-board1.png");
+  border-image-slice: 128;
+  border-image-width: 15px;
+  border-image-repeat: round;
+
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden; /* clip everything that goes over */
+}
+.pfp img {
+  width:320px;
+  height: 320px;
+  object-fit: cover;
+
+  /* where my profile picture is located (left,right) and (top,down)*/
+  object-position: center 65px;
+}
+
+.page-sheet.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
