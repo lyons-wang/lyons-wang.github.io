@@ -4,6 +4,7 @@ html {
   padding: 0;
   min-height: 100vh;
 }
+
 body {
   font-family: "Shippori Mincho", serif;
   background-color: #1B4D3E;
@@ -12,6 +13,14 @@ body {
   align-items: center;
   font-weight: 400;
   font-style: normal;
+}
+
+.custom-divider {
+  border: none; /* removing the default border */
+  height: 2px;
+  background-color: #007550;
+  margin: 20px 0;
+  border-radius: 10px;
 }
 
 .board {
@@ -30,6 +39,7 @@ body {
   box-sizing: border-box;
   display: flex;
 }
+
 /*content inside the board*/
 .page-sheet {
   width: 100%;
@@ -78,14 +88,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap:0;
+  gap: 0;
 }
 
 .side-tabs {
   display: flex;
   flex-direction: column;
-  gap:12px;
-  margin-right:-8px;
+  gap: 12px;
+  margin-right: -8px;
   z-index: 2;
   margin-top: -300px;
 }
@@ -108,21 +118,23 @@ body {
 .side-tabs a:hover {
   background-color: #5B7D69;
 }
+
 /*when a tab is active, pull the tab out by transforming it to the right*/
 .side-tabs a.active-tab {
   background-color: #6F8F72;
   color: #FFF6DD;
   transform: translateX(6px);
-  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
 /* SPECIFIC PAGES */
 
 /* Home Page/About Me */
 .pfp {
-  width:200px;
-  height:200px;
-  padding: 0; /* no padding for this */
+  width: 200px;
+  height: 200px;
+  padding: 0;
+  /* no padding for this */
 
   /* The frame for the profile picture*/
   border: 15px solid transparent;
@@ -136,10 +148,12 @@ body {
   justify-content: center;
   align-items: center;
 
-  overflow: hidden; /* clip everything that goes over */
+  overflow: hidden;
+  /* clip everything that goes over */
 }
+
 .pfp img {
-  width:320px;
+  width: 320px;
   height: 320px;
   object-fit: cover;
 
@@ -153,3 +167,116 @@ body {
   align-items: center;
   gap: 30px;
 }
+
+
+/* specific to projects.html */
+
+.page-sheet.projects {
+  width: 100%;
+  height: 100%;
+
+  padding: 45px;
+  box-sizing: border-box;
+
+  overflow-y: auto;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 35px;
+
+  align-items: start;
+}
+
+
+.project-card {
+  width: 100%;
+  min-height: 190px;
+
+  background-color: #F7E8B8;
+
+  padding: 22px;
+  box-sizing: border-box;
+
+  border: 2px solid #7A6136;
+
+  box-shadow: 5px 5px 0 rgba(0,0,0,0.2);
+
+  cursor: pointer;
+
+  transition: 0.2s;
+
+  transform: rotate(-1.5deg);
+}
+
+.project-dialog {
+  width: min(750px, 80vw);
+  height: min(550px, 80vh);
+
+  padding: 35px;
+
+  background-color: #F7E8B8;
+
+  border: 4px solid #7A6136;
+
+  box-shadow: 0 0 30px rgba(0,0,0,0.4);
+
+  overflow-y: auto;
+
+  position: relative;
+}
+
+.project-dialog[open] {
+  animation: dialogPop 0.2s ease;
+}
+
+@keyframes dialogPop {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.project-dialog.closing {
+  animation: dialogClose 0.2s ease-out forwards;
+}
+
+@keyframes dialogClose {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+.project-dialog::backdrop {
+  background: rgba(0,0,0,0.45);
+
+  backdrop-filter: blur(2px);
+}
+.close-button {
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+
+  border: none;
+
+  background: transparent;
+
+  font-size: 28px;
+
+  cursor: pointer;
+
+  color: #5B3A1E;
+}
+
+/*  */

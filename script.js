@@ -34,3 +34,29 @@ tabs.forEach(tab => {
         }, 250);
     });
 });
+
+
+// specific to projects.html
+// creation of popup for project cards
+
+const cards = document.querySelectorAll(".project-card");
+
+cards.forEach(card => {
+    const dialogId = card.dataset.dialog;
+    const dialog = document.getElementById(dialogId);
+
+    card.addEventListener("click", () => {
+        // user cannot interact with the rest of my website unless this is closed
+        dialog.showModal();
+    });
+
+    dialog.querySelector(".close-button").addEventListener("click", () => {
+        dialog.classList.add("closing");
+        
+        setTimeout(() => {
+        // close the pop-up
+        dialog.close();
+        dialog.classList.remove("closing");
+        }, 200);
+    });
+});
