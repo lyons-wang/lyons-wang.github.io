@@ -35,8 +35,8 @@
                         Decision Making </h4>
                     <hr class="custom-divider">
 
-                    <h4> Abstract: </h4>
-                    <p>
+                    <h4 style="margin-bottom: 15px;"> Abstract: </h4>
+                    <p style="margin-top: 0px;">
                         This project explores how reinforcement learning can model aspects of human dance learning.
                         Using Q-learning, we trained an agent to learn a fixed choreography sequence through trial and
                         error, integrating rhythm, movement memory, and feedback.
@@ -44,8 +44,8 @@
                         timing, and intermediate feedback influence the learning of complex dance patterns.
                     </p>
 
-                    <h4>Key Results:</h4>
-                    <ul>
+                    <h4 style="margin-bottom:15px">Key Results:</h4>
+                    <ul style="margin-top:0px">
                         <li>Chunked/curriculum learning dramatically outperformed sparse reward learning for
                             choreography acquisition</li>
                         <li>Intermediate feedback was critical for learning long movement sequences effectively</li>
@@ -68,19 +68,26 @@
                     </p>
                     <img src="assets/memorizationvschunked.jpg"
                         alt="Comparison of performance of Memorization vs Chunked Learning" width="100%"
-                        style="max-width:700px; height:auto; display:block; margin:auto;">
+                        style="max-width:700px; height:100%; display:block; margin:auto;">
                     <p>
                         <strong>Above: </strong>Comparison of the two strongest learning approaches.
                         Both memorization and chunked/curriculum learning achieved full-sequence mastery, though
                         curriculum learning progressed more gradually through smaller movement sections.
                     </p>
+                    <iframe src="assets/NEUR1660_final_presentation.pdf" width="100%" height="400px"
+                        style="max-width:700px; display:block; margin:auto; margin-bottom: 20px;"
+                        title="NEUR1660 Final Presentation">
+                        Your browser does not support PDFs. Use the link below to download and view the report.
+                    </iframe>
                     <div class="neurprojside">
-                        <iframe src="assets/NEUR1660_Paper.pdf" class="pdf-sizing-neurpaper" title="">
+                        <iframe src="assets/NEUR1660_Paper.pdf" class="pdf-sizing-neurpaper"
+                            title="NEUR1660 Final Paper">
                             Your browser does not support PDFs. Use the link below to download and view the report.
                         </iframe>
                         <div class="neurprojlinks">
                             <h4 style="margin-bottom: 5px">Links: </h4>
                             <a href="assets/NEUR1660_Paper.pdf" target="_blank">Read Full Paper</a>
+                            <a href="assets/NEUR1660_final_presentation.pdf" target="_blank">Read Group Presentation</a>
                             <h4 style="margin-bottom: 5px">Methods & Tools: </h4>
                             <ul style="margin-top: 0px">
                                 <li>MATLAB </li>
@@ -96,49 +103,276 @@
                 <!-- start of next project-card + project-dialog -->
                 <div class="project-card" data-dialog="go-agent-dialog">
                     <h2> Go AI Agent </h2>
-                    <p> MCTS, IDS, and a Heuristic </p>
+                    <p> MCTS, IDS, and Heuristic Design </p>
                 </div>
 
                 <dialog class="project-dialog" id="go-agent-dialog">
                     <button class="close-button">X</button>
 
                     <h1 style="text-align: center;"> Go AI Agent </h1>
-                    <h4 style="text-align: center"> Final Project for NEUR0410: Foundations of AI & Machine Learning </h4>
+                    <h4 style="text-align: center"> Final Project for CSCI0410: Foundations of AI & Machine Learning
+                    </h4>
                     <hr class="custom-divider">
-                    <p>
-                        
+                    <h4 style="margin-bottom: 15px;"> Abstract: </h4>
+                    <p style="margin-top: 0px;">
+                        This project explored artificial intelligence strategies for playing 5x5 Go under strict time
+                        constraints. I implemented and compared multiple search-based agents, including Minimax,
+                        Alpha-Beta Pruning, Iterative Deepening Search (IDS), and Monte Carlo Tree Search (MCTS), before
+                        developing a hybrid agent that combined adversarial search with probabilistic exploration. The
+                        project investigated how different search strategies balance computational efficiency, board
+                        evaluation quality, and decision-making under limited time budgets.
                     </p>
 
-
+                    <h4 style="margin-bottom: 15px;">Hybrid Agent Design</h4>
+                    <p style="margin-top: 0px;">
+                        The final agent used a hybrid strategy that adapted to different stages of the game. During the
+                        opening, the agent prioritized center control to establish strong early influence while avoiding
+                        unnecessary search during the highest-branching portion of the game. This opening strategy was
+                        inspired by
+                        5x5 Go analysis from <a href="https://senseis.xmp.net/?5x5Board">Sensei's Library</a>.
+                    </p>
+                    <p>
+                        In the early and middle game, the agent relied on <a
+                            href="https://en.wikipedia.org/wiki/Monte_Carlo_tree_search">Monte Carlo Tree Search
+                            (MCTS)</a>, which explored
+                        possible outcomes through probabilistic simulations rather than depending entirely on heuristic
+                        evaluation. In the late game, when fewer legal actions remained (< 10), the agent switched to <a
+                            href="https://en.wikipedia.org/wiki/Iterative_deepening_depth-first_search">Iterative
+                            Deepening Search (IDS)</a>, allowing deeper tactical evaluation of more developed
+                            board states. </p>
+                    <p>
+                        This hybrid design combined the strengths of both approaches: broad exploration during
+                        complex early-game positions and more precise more precise heuristic-guided evaluation during
+                        the late game.
+                    </p>
+                    <h4 style="margin-bottom: 15px;">Heuristic Design</h4>
+                    <p style="margin-top: 0px;">
+                        The heuristic evaluation function estimated board strength using both stone count and
+                        controlled territory. Existing stones on the board were weighted heavily because they
+                        represented secured points and stable board presence.
+                    </p>
+                    <p>
+                        To evaluate territory, the agent searched for connected empty regions using a <a
+                            href="https://en.wikipedia.org/wiki/Flood_fill">flood-fill
+                            algorithm</a>. The algorithm iterated across the board and expanded through neighboring
+                        empty intersections to identify contiguous empty regions. During the search, the agent
+                        tracked which player's stones bordered each region. If a region was completely
+                        surrounded by only one player, the region was counted as controlled territory and added
+                        to that player's score. This territory evaluation strategy was inspired by traditional
+                        Go scoring principles described by the <a
+                            href="https://www.pandanet.co.jp/English/learning_go/learning_go_4">Pandanet Go Guide</a>
+                        .
+                    </p>
+                    <p>
+                        The final heuristic combined weighted stone count and territorial control into a single
+                        evaluation score representing overall board strength. Positive scores favored black,
+                        while negative scores favored white. Territorial regions were weighted less heavily than
+                        placed stones because territory can still be invaded or reduced later in the game.
+                    </p>
+                    <h4 style="margin-bottom: 15px;"> Results: </h4>
+                    <p style="margin-top: 0px;">
+                        The hybrid agent performed competitively under tournament evaluation by combining probabilistic
+                        exploration during the early game with deeper heuristic-guided evaluation in the late game.
+                        Iterative Deepening Search consistently outperformed standard Monte Carlo Tree Search in many
+                        local tests, largely because heuristic evaluation was more computationally efficient than
+                        repeated Monte Carlo rollouts under strict time constraints.
+                    </p>
+                    <p>
+                        Interestingly, the Greedy agent also performed competitively against several stronger
+                        search-based agents. On a small 5x5 board, immediate positional advantages and local captures
+                        can already provide strong short-term evaluations, allowing simpler heuristic-based decision
+                        making to remain surprisingly effective despite limited lookahead.
+                    </p>
+                    <p>
+                        Although the hybrid model sometimes underperformed locally due to rollout speed limitations, it
+                        achieved the strongest overall performance on the Gradescope autograder evaluation. This
+                        suggests that the hybrid approach was able to balance exploration and tactical evaluation
+                        effectively under the official testing environment and time controls.
+                    </p>
+                    <p>
+                        One major limitation of the project was runtime performance. Because the implementation used a
+                        <a href="https://github.com/pygame/pygame">PyGame/PyGo-based environment</a>, Monte Carlo
+                        rollouts were relatively slow, causing MCTS to
+                        occasionally exceed time limits and forfeit games. As a result, some tournament outcomes likely
+                        reflected both strategic strength and computational efficiency rather than pure gameplay
+                        quality.
+                    </p>
+                    <img src="assets/agentwr-heatmap.png" alt="Agent win-rate heatmap" width="100%"
+                        style="max-width:700px; height:auto; display:block; margin:auto;">
+                    <p>
+                        <strong>Figure 1: </strong> Tournament win-rate heatmap comparing implemented agents across
+                        local matchups. In this small local sample, the Greedy agent performed surprisingly well, likely
+                        because immediate positional advantages are especially valuable on a 5x5 board. MCTS performed
+                        poorly across matchups, likely due to slow rollout computation and time-limit issues.
+                    </p>
+                    <p>
+                        Experiments with different MCTS exploration constants also demonstrated how
+                        exploration-exploitation tradeoffs influenced search behavior and move selection. Lower
+                        exploration constants caused the search to focus heavily on a smaller number of promising
+                        actions, while higher values distributed simulations more broadly across the board.
+                    </p>
+                    <img src="assets/mcts-cvisit.png" alt="MCTS-CVisit graph" width="100%"
+                        style="max-width:700px; height:auto; display:block; margin:auto;">
+                    <p>
+                        <strong>Figure 2: </strong> Distribution of MCTS visits across actions for different exploration
+                        constants. Lower values of c encouraged exploitation, while larger values increased exploration
+                        across available actions.
+                    </p>
+                    <h4 style="margin-bottom: 15px;"> Future Work: </h4>
+                    <p style="margin-bottom: 0px;">
+                        One possible extension would terminate flood-fill searches early when mixed-color borders
+                        are detected, avoiding unnecessary exploration of regions that cannot contribute to
+                        territory scoring.
+                    </p>
+                    <h4 style="margin-bottom: 5px">Links: </h4>
+                    <a href="https://github.com/brown-cs410/final-project-lyons-wang-1" target="_blank"> Github
+                        Repository</a>
+                    <h4 style="margin-bottom: 5px">Methods & Tools: </h4>
+                    <ul style="margin-top: 0px">
+                        <li>Python </li>
+                        <li>Minimax Search</li>
+                        <li>Alpha-Beta Pruning</li>
+                        <li>Iterative Deepening Search (IDS)</li>
+                        <li>Monte Carlo Tree Search (MCTS)</li>
+                        <li>Heuristic Evaluation Functions</li>
+                        <li>Flood-Fill Territory Detection</li>
+                        <li>Data Visualization</li>
+                        <li>PyGame</li>
+                    </ul>
                 </dialog>
 
                 <div class="project-card" data-dialog="privacy-dialog">
-                    <h2> Privacy in the Healthcare System </h2>
-                    <p> </p>
+                    <h2>Privacy in the Healthcare System </h2>
+                    <p>Ethical Challenges in Healthcare Data</p>
                 </div>
 
                 <dialog class="project-dialog" id="privacy-dialog">
                     <button class="close-button">X</button>
 
-                    <h1> Privacy in the Healthcare System </h1>
+                    <h1 style="text-align: center;"> Privacy in the Healthcare System </h1>
+                    <h4 style="text-align: center"> Final Project for CSCI1805: Computers, Freedom, and Privacy
+                    </h4>
                     <hr class="custom-divider">
-                    <p>
-                        description here.
+                    <h4 style="margin-bottom: 15px;"> Abstract: </h4>
+                    <p style="margin-top: 0px">
+                        This project examined how modern digital health technologies have outpaced traditional
+                        healthcare privacy regulations such as HIPAA. Through analysis of legal frameworks,
+                        cybersecurity risks, and ethical implications, the project explored how wearable devices,
+                        telehealth platforms, and third-party health applications create new challenges for patient
+                        privacy in the digital age.
                     </p>
+                    <h4 style="margin-bottom: 15px;">Core Challenges</h4>
+                    <ul style="margin-top: 0px;">
+                        <li>HIPAA does not regulate many modern digital health platforms</li>
+                        <li>Healthcare data breaches have sharply increased in the digital era</li>
+                        <li>Third-party apps and wearables collect sensitive patient data with limited oversight</li>
+                        <li>Fragmented state and federal laws create regulatory complexity</li>
+                    </ul>
+                    <h4 style="margin-bottom: 15px;">Ethical Concerns</h4>
+                    <ul style="margin-top: 0px;">
+                        <li>Risk of re-identification from “anonymous” datasets</li>
+                        <li>Commercial exploitation of patient data</li>
+                        <li>Threats to patient autonomy and confidentiality</li>
+                        <li>Disproportionate harm to vulnerable populations</li>
+                    </ul>
+                    <h4 style="margin-bottom: 15px;">Policy Recommendations</h4>
+                    <ul style="margin-top: 0px;">
+                        <li>Expand FTC oversight of digital health technologies</li>
+                        <li>Establish national privacy and cybersecurity standards</li>
+                        <li>Limit third-party data sharing and commercialization</li>
+                        <li>Create certification and accountability frameworks</li>
+                    </ul>
 
-
+                    <iframe src="assets/CSCI1805_poster.pdf" width="100%" height="400px"
+                        style="max-width:700px; display:block; margin:auto; margin-bottom: 20px;"
+                        title="CSCI1805 Final Presentation">
+                        Your browser does not support PDFs. Use the link below to download and view the report.
+                    </iframe>
+                    <div class="projside">
+                        <iframe src="assets/CSCI1805_research_outline.pdf" class="pdf-sizing-paper"
+                            title="CSCI1805 Research Outline">
+                            Your browser does not support PDFs. Use the link below to download and view the report.
+                        </iframe>
+                        <div class="projlinks">
+                            <h4 style="margin-bottom: 5px">Links: </h4>
+                            <a href="assets/CSCI1805_research_outline.pdf" target="_blank">Read Full Research
+                                Outline</a>
+                            <a href="assets/CSCI1805_poster.pdf" target="_blank">Read Group Poster</a>
+                            <h4 style="margin-bottom: 5px">Methods & Tools: </h4>
+                            <ul style="margin-top: 0px">
+                                <li>Healthcare Privacy Law (HIPAA)</li>
+                                <li>Policy and Regulatory Analysis</li>
+                                <li>Literature Review</li>
+                            </ul>
+                        </div>
+                    </div>
                 </dialog>
 
                 <div class="project-card" data-dialog="neur2110-dialog">
-                    <h2> Neur2110 final </h2>
-
-                    <p> </p>
+                    <h2> Neural Signal Processing & Connectivity Analysis </h2>
+                    <p> Spectral Analysis, Granger Causality, GLMs, and Kalman Filtering </p>
                 </div>
 
                 <dialog class="project-dialog" id="neur2110-dialog">
                     <button class="close-button">X</button>
 
-                    <h1> Neur2110 Final </h1>
+                    <h1 style="text-align: center">Neural Signal Processing & Connectivity Analysis </h1>
+                    <h4 style="text-align: center">Final Exam for NEUR2110: Statistical Neuroscience</h4>
+                    <hr class="custom-divider">
+                    <h4 style="margin-bottom: 15px;"> Abstract: </h4>
+                    <p style="margin-top: 0px">
+                        This project explored a range of computational neuroscience methods for analyzing neural
+                        signals, connectivity, and dynamical systems. Using stochastic process analysis, spectral
+                        estimation, Granger causality, generalized linear models (GLMs), and Kalman filtering, the
+                        project investigated how statistical and dynamical modeling techniques can be used to
+                        characterize neural activity across both continuous and spike-train data.
+                    </p>
+                    <p>
+                        Analyses included spectral coherence estimation, effective connectivity inference, point-process
+                        modeling of neuronal spiking, and latent state estimation in Gaussian linear dynamical systems.
+                        Together, these methods demonstrate how modern computational approaches can uncover structure,
+                        information flow, and temporal dynamics in complex neural systems.
+                    </p>
+                    <h4 style="margin-bottom: 15px;"> Spectral & Connectivity Analysis: </h4>
+                    <p style="margin-top: 0px">
+                        
+                    </p>
+                    <h4 style="margin-bottom: 15px;"> Spike Train Modeling: </h4>
+                    <p style="margin-top: 0px">
+                        
+                    </p>
+                    <h4 style="margin-bottom: 15px;"> State-Space Modeling & Kalman Filtering: </h4>
+                    <p style="margin-top: 0px">
+                        
+                    </p>
+                    <h4 style="margin-bottom: 5px">Links: </h4>
+                            <a href="assets/Computational_Neuroscience_Analysis_Exercises.pdf" target="_blank">Computational Neuroscience Analysis Exercises</a>
+                    <h4 style="margin-bottom: 5px">Methods & Tools: </h4>
+                    <ul style="margin-top: 0px">
+                        <li>Python</li>
+                        <li>Multitaper Spectral Analysis</li>
+                        <li>VAR Modeling</li>
+                        <li>Spectral Coherence</li>
+                        <li>Granger Causality</li>
+                        <li>Point-Process GLMs</li>
+                        <li>Bootstrap Estimation</li>
+                        <li>State-Space Modeling</li>
+                        <li>Kalman Filtering</li>
+                        <li>Neural Time-Series Analysis</li>
+                        <li>Stochastic Processes</li>
+                    </ul>
+                </dialog>
+
+                <div class="project-card" data-dialog="polls-dialog">
+                    <h2> Polls in 2020 </h2>
+                    <p> Was there bias? </p>
+                </div>
+
+                <dialog class="project-dialog" id="polls-dialog">
+                    <button class="close-button">X</button>
+
+                    <h1 style="text-align: center;"> Polls in 2020 </h1>
+                    <h4 style="text-align: center">Individual Data Project</h4>
                     <hr class="custom-divider">
                     <p>
                         description here.
@@ -154,7 +388,9 @@
 
                 <dialog class="project-dialog" id="decisiontree-dialog">
                     <button class="close-button">X</button>
-                    <h1> Decision Tree </h1>
+                    <h1 style="text-align: center;">Decision Tree </h1>
+                    <h4 style="text-align: center;">Project for CSCI0200: Program Design with Data Structures &
+                        Algorithms</h4>
                     <hr class="custom-divider">
 
                     <p>
@@ -171,7 +407,8 @@
 
                 <dialog class="project-dialog" id="minimax-dialog">
                     <button class="close-button">X</button>
-                    <h1> Connect 4 Algorithm </h1>
+                    <h1 style="text-align: center;">Connect 4 Minimax Algorithm </h1>
+                    <h4 style="text-align: center;">Final Project for CSCI0170: CS-An Integrated Introduction</h4>
                     <hr class="custom-divider">
 
                     <p>
