@@ -31,26 +31,82 @@
                     <button class="close-button">X</button>
 
                     <h1 style="text-align: center"> Neural Representation of Dance </h1>
+                    <h4 style="text-align: center"> Final Project for NEUR1660: Neural Computation in Learning and
+                        Decision Making </h4>
                     <hr class="custom-divider">
 
+                    <h4> Abstract: </h4>
                     <p>
+                        This project explores how reinforcement learning can model aspects of human dance learning.
+                        Using Q-learning, we trained an agent to learn a fixed choreography sequence through trial and
+                        error, integrating rhythm, movement memory, and feedback.
+                        We compared multiple reward structures and state representations to investigate how sequencing,
+                        timing, and intermediate feedback influence the learning of complex dance patterns.
                     </p>
 
+                    <h4>Key Results:</h4>
+                    <ul>
+                        <li>Chunked/curriculum learning dramatically outperformed sparse reward learning for
+                            choreography acquisition</li>
+                        <li>Intermediate feedback was critical for learning long movement sequences effectively</li>
+                        <li>Models with explicit sequence-position memory consistently outperformed rhythm-only state
+                            representations</li>
+                    </ul>
+                    <p>
+                        To summarize: these results suggest that both reward structure and state representation strongly
+                        influence an agents' ability to learn sequential choreography. While reinforcement learning was
+                        effective for reproducing fixed movement patterns,
+                        the project also highlighted important limitations in modeling the creativity, flexibility, and
+                        embodiment involved in real human dance learning.
+                    </p>
+                    <img src="assets/rewardstructures.png" alt="Comparison of Reward Structures" width="100%"
+                        style="max-width:700px; height:auto; display:block; margin:auto;">
+                    <p>
+                        <strong>Above: </strong>Comparison of reward structures during choreography learning.
+                        The chunked/curriculum model steadily improved and eventually mastered the full 32-move
+                        sequence, while sparse reward and random baseline models showed little learning.
+                    </p>
+                    <img src="assets/memorizationvschunked.jpg"
+                        alt="Comparison of performance of Memorization vs Chunked Learning" width="100%"
+                        style="max-width:700px; height:auto; display:block; margin:auto;">
+                    <p>
+                        <strong>Above: </strong>Comparison of the two strongest learning approaches.
+                        Both memorization and chunked/curriculum learning achieved full-sequence mastery, though
+                        curriculum learning progressed more gradually through smaller movement sections.
+                    </p>
+                    <div class="neurprojside">
+                        <iframe src="assets/NEUR1660_Paper.pdf" class="pdf-sizing-neurpaper" title="">
+                            Your browser does not support PDFs. Use the link below to download and view the report.
+                        </iframe>
+                        <div class="neurprojlinks">
+                            <h4 style="margin-bottom: 5px">Links: </h4>
+                            <a href="assets/NEUR1660_Paper.pdf" target="_blank">Read Full Paper</a>
+                            <h4 style="margin-bottom: 5px">Methods & Tools: </h4>
+                            <ul style="margin-top: 0px">
+                                <li>MATLAB </li>
+                                <li>Q-learning</li>
+                                <li>Reinforcement Learning</li>
+                                <li>Data Visualization</li>
+                                <li>Sequential Decision Modeling</li>
+                            </ul>
+                        </div>
+                    </div>
                 </dialog>
 
                 <!-- start of next project-card + project-dialog -->
                 <div class="project-card" data-dialog="go-agent-dialog">
                     <h2> Go AI Agent </h2>
-                    <p> CS0410 Project </p>
+                    <p> MCTS, IDS, and a Heuristic </p>
                 </div>
 
                 <dialog class="project-dialog" id="go-agent-dialog">
                     <button class="close-button">X</button>
 
-                    <h1> Go AI Agent </h1>
-
+                    <h1 style="text-align: center;"> Go AI Agent </h1>
+                    <h4 style="text-align: center"> Final Project for NEUR0410: Foundations of AI & Machine Learning </h4>
+                    <hr class="custom-divider">
                     <p>
-                        description here.
+                        
                     </p>
 
 
@@ -65,7 +121,7 @@
                     <button class="close-button">X</button>
 
                     <h1> Privacy in the Healthcare System </h1>
-
+                    <hr class="custom-divider">
                     <p>
                         description here.
                     </p>
@@ -75,6 +131,7 @@
 
                 <div class="project-card" data-dialog="neur2110-dialog">
                     <h2> Neur2110 final </h2>
+
                     <p> </p>
                 </div>
 
@@ -82,7 +139,7 @@
                     <button class="close-button">X</button>
 
                     <h1> Neur2110 Final </h1>
-
+                    <hr class="custom-divider">
                     <p>
                         description here.
                     </p>
@@ -98,6 +155,7 @@
                 <dialog class="project-dialog" id="decisiontree-dialog">
                     <button class="close-button">X</button>
                     <h1> Decision Tree </h1>
+                    <hr class="custom-divider">
 
                     <p>
                         description here.
@@ -114,6 +172,7 @@
                 <dialog class="project-dialog" id="minimax-dialog">
                     <button class="close-button">X</button>
                     <h1> Connect 4 Algorithm </h1>
+                    <hr class="custom-divider">
 
                     <p>
                         description here.
@@ -126,4 +185,5 @@
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>

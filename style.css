@@ -279,4 +279,21 @@ body {
   color: #5B3A1E;
 }
 
-/*  */
+.pdf-sizing-neurpaper {
+  width: 60%;
+  height: 400px;
+}
+.neurprojside {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+.neurprojlinks {
+  width: 30%;
+  display:flex;
+  flex-direction: column;
+}
+
+/* specific to research.html */
+
+/* specific to sounds.html */
