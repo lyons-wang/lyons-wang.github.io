@@ -97,6 +97,7 @@ body {
   gap: 12px;
   margin-right: -8px;
   z-index: 2;
+  position: relative;
   margin-top: -300px;
 }
 
