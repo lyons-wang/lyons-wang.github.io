@@ -19,14 +19,134 @@
             <a href="research.html" data-page="research">Research</a>
             <a href="music.html" data-page="music">Music</a>
         </nav>
-    <div class="board">
-        <div class="page-sheet research">
+        <div class="board">
+            <div class="page-sheet research">
+                <h1 style="text-align: center; margin-bottom: 15px;">
+                    Research Overview
+                </h1>
 
+                <p style="margin-top: 0px;">
+                    I am interested in how humans <u>adapt to changing environments</u>,
+                    <u>form predictions from uncertain information</u>, and transfer
+                    <u>prior learning</u> across contexts. My work combines computational
+                    modeling, behavioral experimentation, and data analysis to study how
+                    previous experience shapes future learning, motivation, and
+                    decision-making.
+                </p>
 
+                <img src="assets/instructions_drag_drop.gif" alt="Helicopter Task" class="research-figure">
 
-    </div>
-    </div>
+                <p style="margin-top: 0px; margin-bottom: 15px;">
+                    <strong>Figure 1:</strong> Example of the predictive inference task used
+                    to study how humans learn and adapt in changing environments.
+                    Participants position a bucket where they believe the next bag will
+                    fall based on previous observations.
+                </p>
+                <hr class="custom-divider">
+                <h2 style="margin-top: 0px;"> Current Focus: Temporal Structure Learning</h2>
+                <h3 style="margin-bottom: 5px;">Main Goal </h3>
+                <p style="margin-top: 0px;">
+                    To understand how prior experience influences human learning and
+                    decision-making in changing environments, and how people adapt when
+                    uncertainty reflects either meaningful change or random noise.
+                </p>
+                <h3 style="margin-bottom: 5px;">Learning in Uncertain Environments</h3>
+                <p style="margin-top: 0px;">
+                    My current research focuses on
+                    <strong>temporal structure learning</strong>: how humans adapt their
+                    learning strategies in environments with different forms of uncertainty.
+                    <br><br>
+                    Recent work by <a href="#relevant-readings">Bakst & McGuire (2023)</a> suggests that prior learning experience
+                    can bias how humans interpret future outcomes across changing environments. Participants
+                    exposed to highly volatile environments often continued to over-update
+                    their beliefs even after transitioning into environments where surprising
+                    outcomes should largely be ignored.
+                    <br><br>
+                    Building upon this work, I am investigating how prior experience influences
+                    learning behavior across <u>changepoint</u> and <u>oddball</u>
+                    environments, where surprising outcomes may either signal meaningful
+                    environmental change or random noise.
+                    <br><br>
+                    This work is additionally informed by computational models of temporal
+                    structure learning developed by <a href="#relevant-readings">Razmi et al. (2026)</a>, which model
+                    environmental structure as inference over the hyperparameters of a
+                    generative process.
+                </p>
+                <img src="assets/pHDP.png" alt="Generative Model for Temporal Structure Learning"
+                    class="research-figure">
+                <p style="margin-top: 0px; margin-bottom: 15px;">
+                    <strong>Figure 2:</strong> Generative structures from <a href="#relevant-readings">Razmi et al. (2026)</a>
+                    illustrating changepoint, oddball, reversal, and sequence-like
+                    environments. The persistent hierarchical Dirichlet process (pHDP)
+                    models how different transition structures can emerge from distinct
+                    hyperparameter configurations governing persistence, volatility,
+                    and environmental uncertainty.
+                </p>
+                <hr class="custom-divider">
+                <h2 style="margin-top: 0px;">The Role of Prediction Error</h2>
+                <p style="margin-top: 0px;">
+                    A central component of adaptive learning is
+                    <strong>prediction error</strong>: the difference between an expected
+                    outcome and the outcome that is actually observed.
+                    <br><br>
+                    In changepoint environments, large prediction errors often indicate that
+                    the environment itself has changed and beliefs should be updated rapidly.
+                    In oddball environments, however, surprising outcomes are more likely to
+                    reflect noise and should not strongly influence future predictions.
+                    <br><br>
+                    My work examines how humans distinguish between these forms of
+                    uncertainty and how prior learning history biases future belief updating.
+                </p>
+                <img src="assets/instructions_PE.gif" alt="Prediction Error Example" class="research-figure">
+                <p style="margin-top: 0px; margin-bottom: 15px;">
+                    <strong>Figure 3:</strong> Example of prediction error during the task.
+                    Participants continuously update beliefs based on the discrepancy between
+                    expected and observed outcomes.
+                </p>
+                <hr class="custom-divider">
+                <h2 style="margin-top: 0px;">Pipeline</h2>
+                <ul style="margin-top: 0px; line-height: 1.8;">
+                    <li>Develop online predictive inference tasks in JavaScript</li>
+                    <li>Host experiments using JATOS and recruit participants through Prolific</li>
+                    <li>Compare learning across changepoint and oddball environments</li>
+                    <li>Manipulate participant expectations using instructed reset conditions</li>
+                    <li>Process behavioral data using Python and MATLAB</li>
+                    <li>Analyze learning rates, prediction errors, and order effects</li>
+                    <li>Compare participant behavior against probabilistic computational models</li>
+                </ul>
+                <hr class="custom-divider">
+                <h2 style="margin-top: 0px;">Relevant Readings</h2>
+                <p style="margin-top: 0px;">
+                    My work builds upon research in adaptive learning, prediction error,
+                    uncertainty, and temporal structure learning.
+                </p>
+
+                <div class="paper-list" id="relevant-readings">
+                    <a class="paper-entry" href="https://www.sciencedirect.com/science/article/pii/S0010027722003328?ref=pdf_download&fr=RR-2&rr=9e85c315aa720ee6" target="_blank">
+                        <strong>Bakst & McGuire (2023)</strong><br>
+                        <em>Experience-driven recalibration of learning from surprising events.</em><br>
+                        Cognition, 232, 105343.
+                    </a>
+                    <a class="paper-entry" href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007963" target="_blank">
+                        <strong>Piray & Daw (2020)</strong><br>
+                        <em>A simple model for learning in volatile environments.</em><br>
+                        PLoS Computational Biology, 16(7), e1007963.
+                    </a>
+                    <a class="paper-entry" href="https://www.nature.com/articles/nn1954" target="_blank">
+                        <strong>Behrens et al. (2007)</strong><br>
+                        <em>Learning the value of information in an uncertain world.</em><br>
+                        Nature Neuroscience, 10(9), 1214-1221.
+                    </a>
+                    <a class="paper-entry" href="https://www.biorxiv.org/content/10.64898/2026.01.10.698785v1" target="_blank">
+                        <strong>Razmi et al. (2026)</strong><br>
+                        <em>A normative account of human temporal structure learning.</em><br>
+                        bioRxiv.
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
