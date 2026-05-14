@@ -570,13 +570,86 @@
                 </div>
                 <dialog class="project-dialog" id="ecogneuron-dialog">
                     <button class="close-button">X</button>
-                    <h1 style="text-align: center;"> Scaling Effects of Neuronal Population Size on ECoG-Based House & Face Decoding </h1>
-                    <h4 style="text-align: center;">Final Project for NEUR0680: Introduction to Computational Neuroscience</h4>
+                    <h1 style="text-align: center;"> Scaling Effects of Neuronal Population Size on ECoG-Based House &
+                        Face Decoding </h1>
+                    <h4 style="text-align: center;">Final Project for NEUR0680: Introduction to Computational
+                        Neuroscience</h4>
                     <hr class="custom-divider">
                     <h4 style="margin-bottom: 15px;"> Abstract: </h4>
                     <p style="margin-top: 0px">
-                    
+                        This project explored how neuronal population size influences the decoding of visual stimuli
+                        using electrocorticography (ECoG) data. Using broadband neural activity recorded from human
+                        ventral temporal cortex, we analyzed category-selective responses to faces and houses across
+                        implanted electrodes. We then simulated reductions in neuronal population size by lesioning
+                        subsets of channels to examine how response strength and interpretability changed as spatial
+                        resolution decreased. The project replicated several findings from prior literature regarding
+                        face- and house-selective activity, while also revealing challenges in quantitatively linking
+                        electrode-level activity to decoding accuracy. Overall, the project combined signal processing,
+                        neural data analysis, and computational neuroscience methods to investigate how distributed
+                        cortical populations contribute to visual perception.
                     </p>
+
+                    <h4 style="margin-bottom: 15px;"> Key Results: </h4>
+                    <ul>
+                        <li>Successfully identified face-selective and house-selective electrode responses using
+                            broadband ECoG activity</li>
+                        <li>Lesioning selective channels substantially reduced response magnitude and disrupted
+                            interpretable category-specific activity patterns</li>
+                        <li>Heatmap visualizations revealed consistent trial-by-trial temporal dynamics across selective
+                            electrodes</li>
+                        <li>The project highlighted the importance of careful electrode selection and preprocessing when
+                            interpreting population-level neural decoding</li>
+                    </ul>
+                    <p>
+                        To summarize: the results suggest that distributed neuronal populations play a critical role
+                        in visual category representation, while also demonstrating the challenges of scaling
+                        electrode-level analyses into quantitative decoding models.
+                    </p>
+                    <img src="assets/ecogchannels.png" alt="ECoG channel responses during face and house trials"
+                        width="100%" style="max-width:900px; height:auto; display:block; margin:auto;">
+
+                    <p>
+                        <strong>Figure 1:</strong> Averaged broadband neural responses across 50 ECoG channels during
+                        face and house presentation trials. Strong category-selective responses emerged primarily in
+                        channels 42-47, suggesting localized face- and house-selective activity within ventral temporal
+                        cortex.
+                    </p>
+                    <img src="assets/ecogheatmap.png" alt="Heatmap of trial-by-trial broadband neural activity"
+                        width="100%" style="max-width:800px; height:auto; display:block; margin:auto;">
+
+                    <p>
+                        <strong>Figure 2:</strong> Trial-by-trial heatmap visualization of broadband neural activity
+                        aligned to stimulus onset. Increased activity following stimulus presentation demonstrates
+                        consistent temporal response dynamics across selective electrodes.
+                    </p>
+                    <iframe src="assets/ecogpresentation.pdf" width="100%" height="400px"
+                        style="max-width:700px; display:block; margin:auto; margin-bottom: 20px;"
+                        title="NEUR1660 Final Presentation">
+                        Your browser does not support PDFs. Use the link below to download and view the report.
+                    </iframe>
+                    <div class="projside">
+                        <iframe src="assets/NEUR0680_proj_abstract.pdf" class="pdf-sizing-paper"
+                            title="ECoG Project Abstract">
+                            Your browser does not support PDFs. Use the link below to download and view the report.
+                        </iframe>
+                        <div class="projlinks">
+                            <h4 style="margin-bottom: 5px">Links: </h4>
+                            <a href="https://drive.google.com/drive/folders/1bDu9bE9JNI7vjG1lbw6CBxSgcCvwbZkh?usp=drive_link"
+                                target="_blank">Google Drive Code</a>
+                            <a href="assets/ecogpresentation.pdf" target="_blank">Read the Slides</a>
+                            <a href="assets/NEUR0680_proj_abstract.pdf" target="_blank">Read the Abstract</a>
+                            <h4 style="margin-bottom: 5px">Methods & Tools: </h4>
+                            <ul style="margin-top: 0px">
+                                <li>Python</li>
+                                <li>NumPy</li>
+                                <li>SciPy</li>
+                                <li>Matplotlib</li>
+                                <li>ECoG Signal Processing</li>
+                                <li>Broadband Power Analysis</li>
+                                <li>Epoch Extraction</li>
+                                <li>Neural Data Visualization</li>
+                            </ul>
+                        </div>
                 </dialog>
 
                 <div class="project-card" data-dialog="decisiontree-dialog">
@@ -664,7 +737,8 @@
                         The game implemented core Connect 4 mechanics including move validation, win-state detection,
                         player turns, and board state updates. In addition to human-controlled gameplay, the project
                         also included simple AI player behavior capable of selecting moves automatically during play.
-                    </p><p>
+                    </p>
+                    <p>
                         This project served as an introduction to algorithmic problem-solving and software design,
                         helping build the programming foundations used in later machine learning and data science
                         projects.
